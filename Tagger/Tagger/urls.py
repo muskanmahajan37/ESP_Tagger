@@ -20,11 +20,11 @@ from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.conf import settings
 
-urlpatterns = [
+urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
     url(r'^admin/', admin.site.urls),
     url(r'^login/$', auth_views.LoginView.as_view(template_name="login.html"), name="login"),
     url(r'^logout/$', auth_views.LogoutView.as_view(template_name="logout.html"), {'next_page': '/'}, name='logout'),
     url('', include('pair.urls')),
     
     
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
