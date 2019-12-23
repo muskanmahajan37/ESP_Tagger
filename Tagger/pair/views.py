@@ -8,8 +8,9 @@ def index(request):
     p = Image.objects.all()[y]
     if (p.p_image_count==0):
         p_img = Image.objects.all()[y]
-        Image.objects.all()[y].p_image_count += 1
-        # Image.save(self)
+        p_img.p_image_count += 1
+        #print(p_img.p_image_count)
+        p_img.save()
 
     lst = [p.s_image1, p.s_image2, p.s_image3, p.s_image3, p.s_image4, p.s_image5]
     x = random.randint(0,4)
