@@ -22,13 +22,19 @@ class Profile(models.Model):
 class Image(models.Model):
 
     p_image = models.ImageField(max_length=255,upload_to='p_image',default='NULL', blank='NULL')
+    p_image_count = models.IntegerField(default=0)
     s_image1 = models.ImageField(max_length=255,upload_to='s_image')
+    s_image1_flag = models.BooleanField(default=False)
     s_image2 = models.ImageField(max_length=255,upload_to='s_image',default='NULL', blank='NULL')
+    s_image2_flag = models.BooleanField(default=False)
     s_image3 = models.ImageField(max_length=255,upload_to='s_image',default='NULL', blank='NULL')
+    s_image3_flag = models.BooleanField(default=False)
     s_image4 = models.ImageField(max_length=255,upload_to='s_image',default='NULL', blank='NULL')
+    s_image4_flag = models.BooleanField(default=False)
     s_image5 = models.ImageField(max_length=255,upload_to='s_image',default='NULL', blank='NULL')
+    s_image5_flag = models.BooleanField(default=False)
 
-    
+    #if image displayed currently , set flag to true
         
 
     
