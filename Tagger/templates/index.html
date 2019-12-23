@@ -5,7 +5,9 @@
     
    
     {% for img in s_img %}
-    <img src="{{media_url}}{{ img }}" height=250px > 
+        {% if img  %}
+        <img src="{{media_url}}{{ img }}" height=250px > 
+        {% endif %}
     {% endfor %}
     <br> 
     
