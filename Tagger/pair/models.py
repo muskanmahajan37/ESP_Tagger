@@ -22,11 +22,14 @@ class Profile(models.Model):
 class Image(models.Model):
 
     p_image = models.ImageField(max_length=255,upload_to='p_image',default='NULL', blank='NULL')
-    s_image1 = models.ImageField(max_length=255,upload_to='s_image1')
-    s_image2 = models.ImageField(max_length=255,upload_to='s_image2',default='NULL', blank='NULL')
-    s_image3 = models.ImageField(max_length=255,upload_to='s_image3',default='NULL', blank='NULL')
-    s_image4 = models.ImageField(max_length=255,upload_to='s_image4',default='NULL', blank='NULL')
-    s_image5 = models.ImageField(max_length=255,upload_to='s_image5',default='NULL', blank='NULL')
+    s_image1 = models.ImageField(max_length=255,upload_to='s_image')
+    s_image2 = models.ImageField(max_length=255,upload_to='s_image',default='NULL', blank='NULL')
+    s_image3 = models.ImageField(max_length=255,upload_to='s_image',default='NULL', blank='NULL')
+    s_image4 = models.ImageField(max_length=255,upload_to='s_image',default='NULL', blank='NULL')
+    s_image5 = models.ImageField(max_length=255,upload_to='s_image',default='NULL', blank='NULL')
+
+    
+        
 
     
 
@@ -51,3 +54,4 @@ class Score(models.Model):
 
 admin.site.register(Image)
 admin.site.register(Score)
+admin.site.register(Profile)
