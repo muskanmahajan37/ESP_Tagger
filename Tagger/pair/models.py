@@ -11,14 +11,14 @@ from django.conf import settings
 # Create your models here.
  
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE) 
-    
-labels=[]
-for i in range(0,15):
-    labels.append('a'+str(i))
+    user = models.CharField(max_length=255, default='NA')
+    p_img_id = models.IntegerField()
+    p_ans = models.CharField(max_length=1000)
 
-for label in labels:
-    Profile.add_to_class(label, models.CharField(max_length=255, default='NULL', blank='NULL'))
+    
+# model
+# register page
+# p_img 
 
 
 class Image(models.Model):
@@ -34,7 +34,7 @@ class Image(models.Model):
     
 
     def __str__(self):
-        return(str(self.p_image))
+        return(str(self.p_img))
 
 
     

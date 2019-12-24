@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.conf import settings
-from .models import Image
+from .models import Image, Profile
 import random
 # Create your views here.
 def index(request):
@@ -41,31 +41,26 @@ def index(request):
     x = random.randint(0,4)
     s_img = [lst[x]] + tmp
     random.shuffle(s_img)
-
-
-    
-
+    print('hey')
 
     return render(request,'index.html',{"p_img":p, "s_img": s_img, 'media_url':settings.MEDIA_URL})
 
 def update_db(request):
 
-    
+    print('HI')
     # username = request.user.username
     user = request.GET.get("user")
     p_img = request.GET.get("p_img")
     ans = request.POST.get("ans")
 
-    p = User.objects.get(username=user).id
     
     y = Image.objects.get(p_img=p_img).id
     y=y-8
-    a='a'+str(y)
     
-    Profile.objects.get(user=p).a = ans
-    Profile.objects.get(user=p).save()
-    #ahould update but not because a is a string .. should be only a field name type.
+    
+    Profile.objects.create(user=user, p_img_id=y, p_ans=ans)
+    #should update but not because a is a string .. should be only a field name type.
     
 
     # print(p,username, "p")
-    return redirect(request, 'index.html')
+    return render(request, 'index.html', {})

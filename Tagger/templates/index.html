@@ -1,4 +1,4 @@
-<form action='/update' >
+<form action="{% url 'pair:update_db' %}}" >
   Player : <b> {{ user.get_username }} </b> 
 <p style="background-color: #ddd674">Primary image :
     <input type="hidden" name="user" id="{{ user.get_username }}" value="{{ user.get_username }}"></input>
