@@ -64,7 +64,7 @@ def update_db(request):
     
     Profile.objects.get(user=p).a = ans
     Profile.objects.get(user=p).save()
-    
+    #ahould update but not because a is a string .. should be only a field name type.
     
 
     # print(p,username, "p")
