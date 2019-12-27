@@ -1,25 +1,28 @@
-<form action="{% url 'pair:update_db' %}}" >
-  Player : <b> {{ user.get_username }} </b> 
-<p style="background-color: #ddd674">Primary image :
-    <input type="hidden" name="user" id="{{ user.get_username }}" value="{{ user.get_username }}"></input>
-    <input type="hidden" name="p_img" id="{{ p_img.p_img }}" value="{{ p_img.p_img }}"><img id="p_img" src="{{media_url}}{{ p_img.p_img }}" height=300px ></input>
-    
-</p>
-<hr height=2px >
-<p style="background-color: #a7e0d9">Secondary image :
-    
-    {% for img in s_img %}
-        {% if img  %}
-            <input type="radio" id="{{ img }}" name="ans" value="{{ img }}" >
-                <img src="{{media_url}}{{ img }}" height=250px > 
-            </input>
-        {% endif %}
-    {% endfor %}
-    <br> 
-    
-</p>
-<hr>
+<form action="/" method="POST" >
+
+    {% csrf_token %}
+
+            Player : <b> {{ user.get_username }} </b> 
+            <p style="background-color: #ddd674">Primary image :
+                <input type="hidden" name="user" id="{{ user.get_username }}" value="{{ user.get_username }}"></input>
+                <input type="hidden" name="p_img" id="{{ p_img.p_img }}" value="{{ p_img.p_img }}"><img id="p_img" src="{{media_url}}{{ p_img.p_img }}" height=300px ></input>
+                
+            </p>
+            <hr height=2px >
+            <p style="background-color: #a7e0d9">Secondary image :
+                
+                {% for img in s_img %}
+                    {% if img  %}
+                        <input type="radio" id="{{ img }}" name="ans" value="{{ img }}" >
+                            <img src="{{media_url}}{{ img }}" height=250px > 
+                        </input>
+                    {% endif %}
+                {% endfor %}
+                <br> 
+                
+            </p>
+            <hr>
 {{ ans }}
 
-    <input type="submit"  class="btn btn-primary pull-right"> Next / Submit </input></h5>
-  </form>
+<input type="submit" value="Submit" formaction="/update1" />
+</form>

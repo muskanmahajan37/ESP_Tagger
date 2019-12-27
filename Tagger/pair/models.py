@@ -18,7 +18,11 @@ class Profile(models.Model):
     
 # model
 # register page
-# p_img 
+# p_img
+
+class temp(models.Model):
+    user = models.CharField(max_length=255, default='NA')
+    p_img_id = models.IntegerField() 
 
 
 class Image(models.Model):
@@ -40,18 +44,18 @@ class Image(models.Model):
     
 
 class Score(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    points = models.IntegerField()
+    user = models.CharField(max_length=255)
+    points = models.IntegerField(default=0)
 
     def __str__(self):
         return(self.username)
 
 class answers(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    p_img_id = models.CharField(max_length=255,blank=True, default='NA')
     ans_arr = models.CharField(max_length=1000)
 
 admin.site.register(Image)
 admin.site.register(Score)
 admin.site.register(Profile)
 admin.site.register(answers)
-
+admin.site.register(temp)
