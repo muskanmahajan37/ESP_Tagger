@@ -10,6 +10,7 @@ from django.conf import settings
 
 # Create your models here.
  
+ 
 class Profile(models.Model):
     user = models.CharField(max_length=255, default='NA')
     p_img_id = models.IntegerField()
